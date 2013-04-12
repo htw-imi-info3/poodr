@@ -1,4 +1,5 @@
 ############## Page 107 ##############
+# There are road bikes only
 class Bicycle
   attr_reader :size, :tape_color
 
@@ -29,6 +30,9 @@ bike.spares
 #     :tape_color  => "red"}
 
 ############## Page 110 ##############
+# First implementation: Road Bikes and Mountain Bikes
+# within one class, distinguished by style instance variable
+
 class Bicycle
   attr_reader :style, :size, :tape_color,
               :front_shock, :rear_shock
@@ -67,6 +71,8 @@ bike.spares
 #     :rear_shock  => 'Fox'}
 
 ############## Page 115 ##############
+# First try at inheritance: MountainBike extends the former Bicycle
+# which is indeed a Roadbike
 class MountainBike < Bicycle
   attr_reader :front_shock, :rear_shock
 
@@ -96,7 +102,11 @@ mountain_bike.spares
 #     :front_shock => 'Manitou',
 #     :rear_shock  => "Fox"}
 
+
 ############## Page 119 ##############
+# The way to refactor:
+# Start with empty abstraction class!
+
 class Bicycle
   # This class is now empty.
   # All code has been moved to RoadBike.
@@ -126,6 +136,9 @@ mountain_bike = MountainBike.new(
 
 mountain_bike.size
 # NoMethodError: undefined method `size'
+
+# => now the abstractions need to be identified and
+# moved up from RoadBike to Bicycle
 
 ############## Page ?? ##############
 # This is the complete code for example above
@@ -262,6 +275,7 @@ mountain_bike = MountainBike.new(
 mountain_bike.size # -> 'S'
 
 ############## Page ??? ##############
+# how to provide a spare method?
 class MountainBike < Bicycle
   # ...
   def spares
@@ -296,6 +310,8 @@ class Bicycle
 end
 
 ############## Page 126 ##############
+# Template method solution for initialize
+# allows subclass to overwrite default_xx methods
 class Bicycle
   attr_reader :size, :chain, :tire_size
 
@@ -325,6 +341,7 @@ class MountainBike < Bicycle
 end
 
 ############## Page 126 ##############
+# works.
 road_bike = RoadBike.new(
               size:       'M',
               tape_color: 'red' )
@@ -341,6 +358,8 @@ mountain_bike.tire_size # => '2.1'
 road_bike.chain         # => "10-speed"
 
 ############## Page 127 ##############
+# but there's a booby trap: what happens if there is a new
+# bike type:
 class RecumbentBike < Bicycle
   def default_chain
     '9-speed'
@@ -364,10 +383,13 @@ class Bicycle
 end
 
 ############## Page 128 ##############
+# there are no abstract methods in ruby
+# raise exception to provide useful error message
 bent = RecumbentBike.new
 #  NotImplementedError: NotImplementedError
 
 ############## Page 128 ##############
+
 class Bicycle
   #...
   def default_tire_size
@@ -409,6 +431,7 @@ class Bicycle
 end
 
 ############## Page 131 ##############
+# complete implementations with super calls
 class Bicycle
   attr_reader :size, :chain, :tire_size
 
@@ -489,6 +512,7 @@ mountain_bike.spares
 #     :rear_shock  => "Fox"}
 
 ############## Page 133 ##############
+# what happens if new type forgets to call super?
 class RecumbentBike < Bicycle
   attr_reader :flag
 
@@ -516,6 +540,7 @@ bent.spares
 #     :flag      => "tall and orange"}
 
 ############## Page 134 ##############
+# provide hook methods
 class Bicycle
 
   def initialize(args={})
