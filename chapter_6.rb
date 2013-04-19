@@ -11,7 +11,7 @@ class Bicycle
   # every bike has the same defaults for
   # tire and chain size
   def spares
-    { chain:        '10-speed',
+    return { chain:        '10-speed',
       tire_size:    '23',
       tape_color:   tape_color}
   end
@@ -642,7 +642,7 @@ class RoadBike < Bicycle
 end
 
 ############## Page ??? ##############
-# Full listing for above
+# Full listing for above (next one is the complete, skip to that)
 class Bicycle
   attr_reader :size, :chain, :tire_size
 
@@ -701,6 +701,9 @@ road_bike.spares
 #     :tape_color  => "red"}
 
 ############## Page 136 ##############
+# final complete listing
+#
+
 class Bicycle
   attr_reader :size, :chain, :tire_size
 
@@ -769,6 +772,7 @@ class MountainBike < Bicycle
 end
 
 ############## Page 138 ##############
+# easy to extend:
 class RecumbentBike < Bicycle
   attr_reader :flag
 
