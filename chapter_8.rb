@@ -81,7 +81,7 @@ end
 ############## Page 167 ##############
 road_bike =
   Bicycle.new(
-    size:  'L',
+    size:  'L',34q
     parts: RoadBikeParts.new(tape_color: 'red'))
 
 road_bike.size    # -> 'L'
