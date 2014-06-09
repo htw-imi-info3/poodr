@@ -24,7 +24,7 @@ bike = Bicycle.new(
         tape_color: 'red' )
 
 bike.size     # -> 'M'
-bike.spares
+puts bike.spares.inspect
 # -> {:tire_size   => "23",
 #     :chain       => "10-speed",
 #     :tape_color  => "red"}
