@@ -1,4 +1,4 @@
-
+require_relative 'p107_road_bikes_only'
 ############## Page 115 ##############
 # First try at inheritance: MountainBike extends the former Bicycle
 # which is indeed a Roadbike
@@ -22,9 +22,10 @@ mountain_bike = MountainBike.new(
                   front_shock:  'Manitou',
                   rear_shock:   'Fox')
 
-mountain_bike.size # -> 'S'
+puts "here comes the mountain_bike"
+puts mountain_bike.size # -> 'S'
 
-mountain_bike.spares
+puts mountain_bike.spares
 # -> {:tire_size   => "23",       <- wrong!
 #     :chain       => "10-speed",
 #     :tape_color  => nil,        <- not applicable

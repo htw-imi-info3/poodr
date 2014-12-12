@@ -11,10 +11,11 @@ end
 ############## Page ??? ##############
 mountain_bike.spares
 # NoMethodError: super: no superclass method `spares'
+# implement it
 
 ############## Page 123 ##############
 class RoadBike < Bicycle
-  # ...
+  # but - we could forget to call super.merge
   def spares
     { chain:        '10-speed',
       tire_size:    '23',

@@ -34,7 +34,7 @@ bike = Bicycle.new(
         front_shock:  'Manitou',
         rear_shock:   'Fox')
 
-bike.spares
+puts bike.spares
 # -> {:tire_size   => "2.1",
 #     :chain       => "10-speed",
 #     :rear_shock  => 'Fox'}

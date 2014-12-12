@@ -41,11 +41,11 @@ road_bike = RoadBike.new(
               size:       'M',
               tape_color: 'red' )
 
-road_bike.size  # => "M"
+puts road_bike.size  # => "M"
 
 mountain_bike = MountainBike.new(
                   size:         'S',
                   front_shock:  'Manitou',
                   rear_shock:   'Fox')
 
-mountain_bike.size # -> 'S'
+puts mountain_bike.size # -> 'S'

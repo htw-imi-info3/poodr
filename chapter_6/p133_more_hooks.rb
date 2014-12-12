@@ -1,4 +1,26 @@
+# complete implementations with super calls
+class Bicycle
+  attr_reader :size, :chain, :tire_size
 
+  def initialize(args={})
+    @size       = args[:size]
+    @chain      = args[:chain]      || default_chain
+    @tire_size  = args[:tire_size]  || default_tire_size
+  end
+
+  def spares
+    { tire_size:  tire_size,
+      chain:      chain}
+  end
+
+  def default_chain
+    '10-speed'
+  end
+
+  def default_tire_size
+    raise NotImplememtedError
+  end
+end
 
 ############## Page 133 ##############
 # what happens if new type forgets to call super?
@@ -23,7 +45,8 @@ class RecumbentBike < Bicycle
 end
 
 bent = RecumbentBike.new(flag: 'tall and orange')
-bent.spares
+puts "forgot to call super"
+puts bent.spares
 # -> {:tire_size => nil, <- didn't get initialized
 #     :chain     => nil,
 #     :flag      => "tall and orange"}
@@ -104,6 +127,6 @@ road_bike = RoadBike.new(
               size:       'M',
               tire_size:  25,
               tape_color: 'red' )
-
-road_bike.spares
+puts "with more hooks"
+puts road_bike.spares
 

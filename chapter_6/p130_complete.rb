@@ -1,4 +1,11 @@
-
+############## Page 130 ##############
+class Bicycle
+  #...
+  def spares
+    { tire_size:  tire_size,
+      chain:      chain}
+  end
+end
 ############## Page 130 ##############
 class RoadBike < Bicycle
   #
@@ -13,14 +20,6 @@ class MountainBike < Bicycle
   #
   def spares
     super.merge({rear_shock:  rear_shock})
-  end
-end
-############## Page 130 ##############
-class Bicycle
-  #...
-  def spares
-    { tire_size:  tire_size,
-      chain:      chain}
   end
 end
 
@@ -90,7 +89,7 @@ road_bike = RoadBike.new(
               size:       'M',
               tape_color: 'red' )
 
-road_bike.spares
+puts "road bike #{road_bike.spares}"
 # -> {:tire_size   => "23",
 #     :chain       => "10-speed",
 #     :tape_color  => "red"}
@@ -100,7 +99,7 @@ mountain_bike = MountainBike.new(
                   front_shock:  'Manitou',
                   rear_shock:   'Fox')
 
-mountain_bike.spares
+puts "mountain bike #{mountain_bike.spares}"
 # -> {:tire_size   => "2.1",
 #     :chain       => "10-speed",
 #     :rear_shock  => "Fox"}

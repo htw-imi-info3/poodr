@@ -17,23 +17,7 @@ class MountainBike < Bicycle
   # Code has not changed.
 end
 
-############## Page 120 ##############
-road_bike = RoadBike.new(
-              size:       'M',
-              tape_color: 'red' )
 
-road_bike.size  # => "M"
-
-mountain_bike = MountainBike.new(
-                  size:         'S',
-                  front_shock:  'Manitou',
-                  rear_shock:   'Fox')
-
-mountain_bike.size
-# NoMethodError: undefined method `size'
-
-# => now the abstractions need to be identified and
-# moved up from RoadBike to Bicycle
 
 
 ############## Page ?? ##############
@@ -64,7 +48,7 @@ class MountainBike < Bicycle
   def initialize(args)
     @front_shock = args[:front_shock]
     @rear_shock =  args[:rear_shock]
-    super(args)
+    #super(args)
   end
 
   def spares
@@ -72,17 +56,24 @@ class MountainBike < Bicycle
   end
 end
 
+############## Page 120 ##############
+
+
 road_bike = RoadBike.new(
               size:       'M',
               tape_color: 'red' )
-
-road_bike.size  # => "M"
+puts "road bike"
+puts road_bike.size  # => "M"
 
 mountain_bike = MountainBike.new(
                   size:         'S',
                   front_shock:  'Manitou',
                   rear_shock:   'Fox')
+puts "mountain bike"
+puts mountain_bike.size
 
-mountain_bike.size
 
 # NoMethodError: undefined method `size'
+
+# => now the abstractions need to be identified and
+# moved up from RoadBike to Bicycle

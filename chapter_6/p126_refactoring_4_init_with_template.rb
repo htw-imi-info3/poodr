@@ -36,13 +36,13 @@ road_bike = RoadBike.new(
               size:       'M',
               tape_color: 'red' )
 
-road_bike.tire_size     # => '23'
-road_bike.chain         # => "10-speed"
+puts road_bike.tire_size     # => '23'
+puts road_bike.chain         # => "10-speed"
 
 mountain_bike = MountainBike.new(
                   size:         'S',
                   front_shock:  'Manitou',
                   rear_shock:   'Fox')
 
-mountain_bike.tire_size # => '2.1'
-road_bike.chain         # => "10-speed"
+puts mountain_bike.tire_size # => '2.1'
+puts road_bike.chain         # => "10-speed"
