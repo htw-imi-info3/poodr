@@ -41,5 +41,4 @@ bent = RecumbentBike.new
 #    This RecumbentBike cannot respond to:
 #      `default_tire_size'
 
-puts "hello"
 puts bent.spares
