@@ -9,7 +9,8 @@ class RecumbentBike < Bicycle
   end
 end
 
+bent1 = RecumbentBike.new(tire_size: "2.1")
+puts bent1.inspect
 bent = RecumbentBike.new
 # NameError: undefined local variable or method
 #   `default_tire_size'
-
