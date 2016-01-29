@@ -1,7 +1,10 @@
 ############## Page 36 ##############
+require_relative '../assert/assert.rb'
+include Assert
+
 class Gear
   attr_reader :chainring, :cog, :rim, :tire
-  def initialize(chainring, cog, rim, tire)
+  def initialize(chainring:, cog:, rim:, tire:)
     @chainring = chainring
     @cog       = cog
     @rim       = rim
@@ -30,5 +33,6 @@ class Wheel
   end
 # ...
 end
-
-Gear.new(52, 11, 26, 1.5).gear_inches
+# Gear.new(52, 11, 26, 1.5)
+gear = Gear.new(chainring: 52 , cog: 11, rim: 26, tire: 1.5)
+assert(137.0909090909091, gear.gear_inches)
